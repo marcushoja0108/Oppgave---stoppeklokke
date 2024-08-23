@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+
+    <style>
+        .rundedisplay{
+            margin: 10px;
+            width: 50px;
+            height: 25px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="starttimer()">start timer
+    </button>
+    <button onclick="pausetimer()">pause timer
+    </button>
+    <button onclick="stopall()">stopp timer
+    </button>
+<br/>
+    tid
+
+    <div class="rundedisplay" id="watchdisplay">    </div>
+    runder
+    <div class="rundedisplay" id="rundeliste">
+
+</div>
+
+
+    <script>
+
+        const watchdisplay = document.getElementById('watchdisplay');
+        const rundeliste = document.getElementById('rundeliste');
+        let seconds = 0;
+        var timer;
+
+
+        function starttimer(){
+            setInterval(countseconds, 1000);
+
+        }
+
+        function countseconds(){
+            watchdisplay.innerHTML = seconds;
+            seconds++;
+        }
+
+        function pausetimer(){
+            rundeliste.innerHTML += `<li>${seconds-1}</li>`;
+            clearInterval(timer);
+            seconds = 0;
+        }
+
+        function stopall(){
+            location.reload()
+        }
+
+    </script>
+</body>
+</html>
